@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+    <h1>Book an Appointment</h1>
+
+    <form method="POST" action="{{ url_for('book_appointment') }}">
+        <label for="doctor_id">Select Doctor:</label>
+        <select id="doctor_id" name="doctor_id" required>
+            {% for doctor in doctors %}
+            <option value="{{ doctor['id'] }}">{{ doctor['name'] }} - {{ doctor['specialization'] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="date" id="appointment_date" name="appointment_date" required><br>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+
+    <!-- JavaScript-based back button -->
+    <button onclick="window.history.back()" class="back-button">Back</button>
+
+    <!-- Display any flashed messages -->
+    <p>{{ get_flashed_messages()|join(', ') }}</p>
+{% endblock %}
+</body>
+</html>

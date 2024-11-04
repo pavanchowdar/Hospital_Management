@@ -1,0 +1,33 @@
+
+
+{% block content %}
+<h1 style="text-align: center; color: #333;">My Appointments</h1>
+
+<table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: left;">
+    <thead>
+        <tr style="background-color: #007BFF; color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Doctor</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Appointment Date</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Billing Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appointment in appointments %}
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ appointment['doctor_name'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ appointment['appointment_date'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ appointment['payment_status'] if appointment['payment_status'] else 'Payment Pending' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Back to dashboard button -->
+<div style="text-align: center; margin: 20px;">
+    <button onclick="window.location.href='{{ url_for('patient_dashboard') }}'" 
+            style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Back to Dashboard
+    </button>
+</div>
+
+{% endblock %}

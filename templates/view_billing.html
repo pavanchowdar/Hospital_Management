@@ -1,0 +1,40 @@
+{% block content %}
+<h1 style="text-align: center; color: #333;">Billing Information</h1>
+
+<!-- Display billing info for the specific patient -->
+{% if billing_info %}
+    <table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: left; border: 1px solid #ddd;">
+        <thead>
+            <tr style="background-color: #007BFF; color: white;">
+                <th style="padding: 10px; border: 1px solid #ddd;">Bill ID</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Doctor Name</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Total Amount</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Payment Status</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Payment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bill in billing_info %}
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ bill.id }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ bill.doctor_name }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">${{ bill.total_amount }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ bill.payment_status }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ bill.payment_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style="text-align: center; color: red; font-weight: bold;">No billing information available.</p>
+{% endif %}
+
+<!-- Back to patient dashboard -->
+<div style="text-align: center; margin: 20px;">
+    <button onclick="window.location.href='{{ url_for('patient_dashboard') }}'" 
+            style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Back to Dashboard
+    </button>
+</div>
+
+{% endblock %}

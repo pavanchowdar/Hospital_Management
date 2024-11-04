@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Payment Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+    <h1>Update Payment Status</h1>
+
+    <form method="POST">
+        <label for="payment_status">Payment Status:</label>
+        <select id="payment_status" name="payment_status" required>
+            <option value="Paid" {% if billing.payment_status == 'Paid' %} selected {% endif %}>Paid</option>
+            <option value="Pending" {% if billing.payment_status == 'Pending' %} selected {% endif %}>Pending</option>
+        </select><br>
+
+        <button type="submit">Update Payment</button>
+    </form>
+
+    <button onclick="window.history.back()" class="back-button">Back</button>
+
+    <p>{{ get_flashed_messages()|join(', ') }}</p>
+{% endblock %}
+</body>
+</html>
