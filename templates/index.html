@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        nav {
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .login-links {
+            margin-top: 20px;
+        }
+
+        .login-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #4CAF50;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Hospital Management System</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('doctor_register') }}">Doctor Registration</a></li>
+            <li><a href="{{ url_for('patient_register') }}">Patient Registration</a></li>
+            <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+           
+        </ul>
+    </nav>
+
+    <div class="login-links">
+        <a href="{{ url_for('patient_login') }}">Patient Login</a> |
+        <a href="{{ url_for('doctor_login') }}">Doctor Login</a>
+    </div>
+</body>
+</html>
