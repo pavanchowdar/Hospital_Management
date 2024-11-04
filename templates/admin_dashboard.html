@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        button, a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover, a:hover {
+            background-color: #45a049;
+        }
+
+        .actions a {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+{% block content %}
+    <h1>Admin Dashboard</h1>
+
+    <h2>Manage Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Appointment Date</th>
+                <th>Payment Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.appointment_id }}</td>
+                <td>{{ appointment.patient_name }}</td>
+                <td>{{ appointment.doctor_name }}</td>
+                <td>{{ appointment.appointment_date }}</td>
+                <td>{{ appointment.payment_status }}</td>
+                <td>
+                    <a href="{{ url_for('delete_appointment', appointment_id=appointment.appointment_id) }}">Cancel</a>
+                    
+                    {% if appointment.billing_id and appointment.payment_status == 'Pending' %}
+                        <a href="{{ url_for('update_payment_status', billing_id=appointment.billing_id) }}">Mark as Paid</a>
+                    {% endif %}
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <h2>Manage Doctors</h2>
+    <a href="{{ url_for('view_doctors') }}">View Doctors</a>
+
+    <h2>Manage Patients</h2>
+    <a href="{{ url_for('view_patients') }}">View Patients</a>
+
+    <h2>Manage Billing</h2>
+    <a href="{{ url_for('admin_view_billing') }}">View Billing</a>
+
+    <br><br>
+    <a href="{{ url_for('admin_logout') }}">Logout</a>
+{% endblock %}
+
+</body>
+</html>

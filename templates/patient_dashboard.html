@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: rgba(13, 255, 0, 0.813);
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0a5d00;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+    <h1>Welcome to the Patient Dashboard</h1>
+    <nav>
+        <a href="{{ url_for('view_appointments', patient_id=session['patient_id']) }}">View Appointments</a><br>
+        <a href="{{ url_for('book_appointment') }}">Book Appointment</a><br>
+        <a href="{{ url_for('view_billing', patient_id=session['patient_id']) }}">View Billing Information</a><br>
+        <a href="{{ url_for('patient_logout') }}">Logout</a>
+    </nav>
+
+    <p>{{ get_flashed_messages()|join(', ') }}</p>
+{% endblock %}
+</body>
+</html>
