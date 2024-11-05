@@ -18,12 +18,33 @@ Doctor login page:
 
 <img width="1104" alt="image" src="https://github.com/user-attachments/assets/b46dc8f8-9d86-44c9-911c-61f9829f6fcc">
 
-Admin DashBoard Page:
+Admin Login Page:
 <img width="1104" alt="image" src="https://github.com/user-attachments/assets/0b3b0a63-5c2d-4019-8a71-20331b55eae3">
 
 Patient Dashboard page:
 
 <img width="1104" alt="image" src="https://github.com/user-attachments/assets/c5cf2c78-7777-4bda-80c9-0ee1422670a7">
+
+Doctor DashBoard page:
+
+<img width="1287" alt="image" src="https://github.com/user-attachments/assets/a3998bfb-c6c8-404a-bfa2-323fa4faa855">
+
+Admin Dashboard page:
+
+<img width="1287" alt="image" src="https://github.com/user-attachments/assets/fdd01b80-7f79-4ccb-9c15-7a176ee23f07">
+
+Doctor Registration page:
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/73d75c39-4bf6-4e72-861f-2f4c86453ed7">
+
+Patient Registration page:
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/a3a9780d-685e-4948-84ce-4bb8862d4006">
+
+
+
+
+
 
 
 
