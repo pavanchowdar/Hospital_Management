@@ -3,7 +3,7 @@ WSU I'd: H278M263
 
 **Project: Hospital Management System**
 
-I present my Hospital Management System, an application for managing patient appointments, doctor schedules, and billing processes. 
+ Hospital Management System, an application for managing patient appointments, doctor schedules, and billing processes. 
 The system allows administrators, doctors, and patients to easily interact through a user-friendly interface.
 
 
