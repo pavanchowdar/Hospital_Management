@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+   
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>Doctor Registration</title>
+    </head>
+    <body>
+        <h2 style="justify-content: center;text-align: center;">Doctor Registration</h2>
+    
+        <form method="POST" action="{{ url_for('doctor_register') }}">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+    
+            <label for="specialization">Specialization:</label>
+            <input type="text" id="specialization" name="specialization" required><br>
+    
+            <label for="loginid">Login ID:</label>
+            <input type="text" id="loginid" name="loginid" required><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+    
+            <button type="submit">Register</button>
+            <button onclick="window.location.href='/'">Back to Main Page</button>
+        </form>
+        
+    </body>
+    </html>
+    
+    <p>{{ get_flashed_messages()|join(', ') }}</p> 
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+    
+</body>
+</html>

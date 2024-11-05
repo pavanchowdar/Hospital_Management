@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+    <h1>Billing Information</h1>
+
+    <!-- Show the selected doctor -->
+    <table>
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Total Amount</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ doctor_name }}</td>  <!-- Pre-filled doctor info from session -->
+                <td>$100.00</td>  <!-- Fixed total amount -->
+                <td>
+                    <form method="POST" action="{{ url_for('billing', patient_id=patient_id) }}">
+
+                        <label for="payment_method">Payment Method:</label>
+                        <select id="payment_method" name="payment_method" required>
+                            <option value="Walk-in" selected>Walk-in</option> <!-- Default to walk-in -->
+                            <option value="Online Card Payment">Online Card Payment</option>
+                        </select>
+
+                        <!-- Only show card fields if the payment method is 'Online Card Payment' -->
+                        <div id="card-info" style="display: none;">
+                            <label for="card_number">Card Number:</label>
+                            <input type="text" id="card_number" name="card_number" maxlength="16">
+
+                            <label for="card_expiry">Card Expiry:</label>
+                            <input type="text" id="card_expiry" name="card_expiry" placeholder="MM/YY">
+
+                            <label for="card_cvv">CVV:</label>
+                            <input type="text" id="card_cvv" name="card_cvv" maxlength="3">
+                        </div>
+
+                        <button type="submit">Submit Payment Info</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+    document.getElementById('payment_method').addEventListener('change', function() {
+        var cardInfo = document.getElementById('card-info');
+        if (this.value === 'Online Card Payment') {
+            cardInfo.style.display = 'block';
+        } else {
+            cardInfo.style.display = 'none';
+        }
+    });
+    </script>
+
+    <button onclick="window.location.href='{{ url_for('patient_dashboard') }}'" class="back-button">Back to Dashboard</button>
+
+    <p>{{ get_flashed_messages()|join(', ') }}</p>
+{% endblock %}
+</body>
+</html>
