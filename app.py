@@ -1,6 +1,6 @@
 
 import sqlite3
-# import random
+import random
 from flask import Flask, render_template, request, redirect, url_for, session, g,flash as curses_flash
 from db_helpers import query_db, modify_db, get_db_connection
 from models import create_tables

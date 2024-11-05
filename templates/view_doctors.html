@@ -1,0 +1,38 @@
+{% block content %}
+<h1 style="text-align: center; color: #333;">Manage Doctors</h1>
+
+<table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: left; border: 1px solid #ddd;">
+    <thead>
+        <tr style="background-color: #007BFF; color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Name</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Specialization</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Email</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+        </tr>
+    </thead>
+    <tbody> 
+        {% for doctor in doctors %}
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ doctor['name'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ doctor['specialization'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ doctor['email'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <a href="{{ url_for('edit_doctor', doctor_id=doctor['id']) }}" 
+                   style="color: #007BFF; text-decoration: none; margin-right: 10px;">Edit</a> |
+                <a href="{{ url_for('delete_doctor', doctor_id=doctor['id']) }}" 
+                   style="color: red; text-decoration: none; margin-left: 10px;">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Back button -->
+<div style="text-align: center; margin: 20px;">
+    <button onclick="window.location.href='{{ url_for('admin_dashboard') }}'" 
+            style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Back to Main Page
+    </button>
+</div>
+
+{% endblock %}
