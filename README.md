@@ -18,7 +18,12 @@ Doctor login page:
 
 <img width="1104" alt="image" src="https://github.com/user-attachments/assets/b46dc8f8-9d86-44c9-911c-61f9829f6fcc">
 
+Admin DashBoard Page:
+<img width="1104" alt="image" src="https://github.com/user-attachments/assets/0b3b0a63-5c2d-4019-8a71-20331b55eae3">
 
+Patient Dashboard page:
+
+<img width="1104" alt="image" src="https://github.com/user-attachments/assets/c5cf2c78-7777-4bda-80c9-0ee1422670a7">
 
 
 
