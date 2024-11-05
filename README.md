@@ -42,6 +42,24 @@ Patient Registration page:
 <img width="1447" alt="image" src="https://github.com/user-attachments/assets/a3a9780d-685e-4948-84ce-4bb8862d4006">
 
 
+View Patient Details by admin page:
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/31722972-b3ae-4370-be84-a74866a7367c">
+
+View Doctor details by admin page:
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/a52ff414-3210-4cbd-bc71-dfcbee719ad9">
+
+Book Appointment By Patient page:
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/5ed22afb-1f0f-4db2-92cd-1f6f77c14604">
+
+Billing info in Patient page :
+
+<img width="1447" alt="image" src="https://github.com/user-attachments/assets/a3abddd1-d493-497e-8161-b5db2ed347b6">
+
+
+
 
 
 
